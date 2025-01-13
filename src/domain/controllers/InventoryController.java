@@ -13,7 +13,7 @@ public class InventoryController {
     private int orderID;
     private List<OrderEntity> currentOrder;
 
-    private String barcode;
+    private String barcode = "2137";
 
     public InventoryController(IRepository repository, InventoryViewState state) {
         this.repository = repository;
