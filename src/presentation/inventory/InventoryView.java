@@ -24,8 +24,26 @@ public class InventoryView {
 
     }
 
-    public void displayLocation(Map<Integer, Integer> location) {
+    public void displayInputPrompt(String prompt) {
+        System.out.println(prompt);
+    }
 
+    public void displayAmountPrompt() {
+        System.out.println("Podaj ilość towaru dostępnego w magazynie:");
+    }
+
+    public void displayLocationPrompt() {
+        System.out.println("Podaj lokalizacje towaru w magazynie:");
+    }
+
+    public void displayError(String error) {
+        System.out.println(error);
+    }
+
+    public void displayLocation(Map<Integer, Integer> location) {
+        for (Map.Entry<Integer, Integer> entry : location.entrySet()) {
+            System.out.println("Współrzędne: " + entry.getKey()+ ", " + entry.getValue());
+        }
     }
 
     public void displayConfirmationRequest() {

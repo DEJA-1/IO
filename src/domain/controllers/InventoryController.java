@@ -1,6 +1,7 @@
 package domain.controllers;
 import java.util.List;
 import domain.model.OrderEntity;
+import domain.model.UserEntity;
 import domain.repository.IRepository;
 import presentation.inventory.InventoryViewEvent;
 import presentation.inventory.InventoryViewState;
@@ -10,49 +11,62 @@ public class InventoryController {
     private IRepository repository;
     private InventoryViewState state;
     private int orderID;
-    private OrderEntity currentOrder;
+    private List<OrderEntity> currentOrder;
+
+    private String barcode;
 
     public InventoryController(IRepository repository, InventoryViewState state) {
         this.repository = repository;
         this.state = state;
     }
 
-    public OrderEntity getCurrentOrder() {
-        return currentOrder;
+    public List<OrderEntity> getCurrentOrder() {
+        return state.currentOrder;
     }
 
     public void getInventory() {
         List<OrderEntity> inventory = repository.getAllOrders();
-        // Update the state with inventory data
-//        state.setInventory(inventory);
     }
 
     public void handleEvent(InventoryViewEvent event) {
-        // Handle the event, depending on the type
+        switch (event) {
+            case CloseClick -> handleCloseClick();
+            case BarcodeScan -> handleBarcodeScan();
+            case FinishClick -> handleFinishClick();
+            case UpdateClick -> handleUpdateClick();
+            case PromptScanAgain -> handlePromptScanAgain();
+        }
     }
 
     public void updateState(InventoryViewState newState) {
         this.state = newState;
     }
 
-    public void handleCloseClick() {
-        // Handle closing the inventory view
+    private void handleCloseClick() {
     }
 
-    public void handleFinishClick() {
-        // Handle finishing an operation
+    private void handlePromptScanAgain() {
     }
 
-    public void handleUpdateClick() {
-        // Handle updating the inventory
+    private void handleFinishClick() {
     }
 
-    public void handleBarcodeScan() {
-        // Handle scanning a barcode
+    private void handleUpdateClick() {
     }
 
-    public boolean isBarcodeValid() {
-        // Logic to check if a barcode is valid
-        return true; // Placeholder implementation
+    private void handleBarcodeScan() {
+        for (int i = 0; i < 3; i++) {
+            boolean isValid = isBarcodeValid(barcode);
+            if (isValid) {
+                // zmiana statusu i wyswietlenie że wysłane
+                break;
+            } else {
+                // print ze nieprawidlowy kod
+            }
+        }
+    }
+
+    private boolean isBarcodeValid(String barcode) {
+        return barcode.length() == 3;
     }
 }
