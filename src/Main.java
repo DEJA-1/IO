@@ -50,36 +50,12 @@ public class Main {
         if (amount < currentOrder.size()) {
             inventoryView.displayError("Za malo rzeczy w magazynie.");
         } else {
-            proceedWithOrder(scanner, inventoryView, inventoryController, currentOrder);
+            proceedWithOrder(scanner, inventoryView, inventoryController, currentOrder, inventoryViewState);
         }
 
-//        int attempts = 0;
-//        boolean success = false;
-//        while (attempts < 3 && !success) {
-//            System.out.println("Scanning barcode (attempt " + (attempts + 1) + ")...");
-//            success = inventoryController.isBarcodeValid("sampleBarcode");
-//            if (!success) {
-//                attempts++;
-//                if (attempts >= 3) {
-//                    System.out.println("Error: Too many failed attempts.");
-//                    return;
-//                }
-//                inventoryView.sendEvent(InventoryViewEvent.PromptScanAgain);
-//            }
-//        }
-//
-//        // Step 3: Confirm order
-//        System.out.println("Confirming order.");
-//        inventoryView.sendEvent(InventoryViewEvent.FinishClick);
-//
-//        // Step 4: Complete the order
-//        System.out.println("Completing order and notifying client.");
-//        inventoryController.handleFinishClick();
-//
-//        System.out.println("End of 'Wydawanie towaru' use case.");
     }
 
-    private static void proceedWithOrder(Scanner scanner, InventoryView inventoryView, InventoryController controller, List<OrderEntity> currentOrder) {
+    private static void proceedWithOrder(Scanner scanner, InventoryView inventoryView, InventoryController controller, List<OrderEntity> currentOrder, InventoryViewState state) {
         for (OrderEntity order : currentOrder) {
             inventoryView.displayLocation(order.location);
         }
@@ -88,6 +64,11 @@ public class Main {
 
         if (sufficientAmount) {
             controller.handleEvent(InventoryViewEvent.BarcodeScan);
+            if (state.getOrderSucceeded()) {
+                inventoryView.displaySuccess("Zamowienie zostalo wyslane");
+            } else {
+                inventoryView.displayError("Nie udalo sie wysłac towaru.");
+            }
         } else {
             inventoryView.displayError("Ilość towarów nie zgadza się.");
         }

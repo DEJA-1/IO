@@ -1,7 +1,8 @@
 package domain.controllers;
+
 import java.util.List;
+
 import domain.model.OrderEntity;
-import domain.model.UserEntity;
 import domain.repository.IRepository;
 import presentation.inventory.InventoryViewEvent;
 import presentation.inventory.InventoryViewState;
@@ -11,7 +12,8 @@ public class InventoryController {
     private IRepository repository;
     private InventoryViewState state;
     private int orderID;
-    private List<OrderEntity> currentOrder;
+    private OrderEntity currentOrder;
+    private List<OrderEntity> orders;
 
     private String barcode = "2137";
 
@@ -58,16 +60,15 @@ public class InventoryController {
         for (int i = 0; i < 3; i++) {
             boolean isValid = isBarcodeValid(barcode);
             if (isValid) {
-                // repository.updateOrder(currentOrder);
-                // zmiana statusu i wyswietlenie że wysłane
-                break;
-            } else {
-                // print ze nieprawidlowy kod
+                repository.updateOrder(currentOrder);
+                state.setOrderSucceeded(true);
+                return;
             }
         }
+        state.setOrderSucceeded(false);
     }
 
     private boolean isBarcodeValid(String barcode) {
-        return barcode.length() == 3;
+        return barcode.length() > 3;
     }
 }

@@ -40,6 +40,10 @@ public class InventoryView {
         System.out.println(error);
     }
 
+    public void displaySuccess(String message) {
+        System.out.println(message);
+    }
+
     public void displayLocation(Map<Integer, Integer> location) {
         for (Map.Entry<Integer, Integer> entry : location.entrySet()) {
             System.out.println("Współrzędne: " + entry.getKey()+ ", " + entry.getValue());
