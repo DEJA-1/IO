@@ -58,6 +58,7 @@ public class InventoryController {
         for (int i = 0; i < 3; i++) {
             boolean isValid = isBarcodeValid(barcode);
             if (isValid) {
+                // repository.updateOrder(currentOrder);
                 // zmiana statusu i wyswietlenie że wysłane
                 break;
             } else {
