@@ -10,7 +10,9 @@ presentation\admin\AdminViewState.class
 presentation\test\local\HandleActualStateTests.class
 data\database\Database.class
 presentation\inventory\InventoryView.class
+presentation\test\fitnesse\HandleLocationFixture.class
 Main.class
+presentation\test\fitnesse\HandleOrderFeedbackFixture.class
 presentation\raport\RaportViewEvent.class
 data\database\IDao.class
 data\database\Dao.class

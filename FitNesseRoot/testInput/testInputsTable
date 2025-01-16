@@ -1,6 +1,5 @@
 !path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
 !path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
-
 !| presentation.test.fitnesse.HandleActualStateFixture |
 | scannerInput | currentOrderCount | handleActualState? | getLastMessage?                 |
 | 10           | 5                 | true               | Ilość jest poprawna.            |
@@ -10,3 +9,30 @@
 | 10           | 0                 | true               | Ilość jest poprawna.            |
 
 https://imgur.com/a/JCNbjD0
+
+
+!path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
+!path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
+!| presentation.test.fitnesse.HandleLocationFixture |
+| scannerInput | currentOrderId | handleLocation? | getLastMessage?                          |
+| 1            | 1              | true            | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                  |
+| 0            | 1              | false           | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                |
+| 1            | 2              | true            | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                   |
+| 0            | 2              | false           | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                |
+| 1            | 3              | false           | Brak zamówienia.                        |
+| 0         | 1              | false           | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                |
+
+
+https://imgur.com/a/ldBuJVN
+
+!path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
+!path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
+!| presentation.test.fitnesse.HandleOrderFeedbackFixture |
+| isValid | orderId | handleOrderFeedback? | getLastMessage?                     |
+| true    | 1       | true                 | Zamówienie zostało wysłane.         |
+| false   | 1       | false                | Ilość towarów nie zgadza się.       |
+| true    | 2       | true               | Zamówienie zostało wysłane.        |
+| false   | 2       | false                | Ilość towarów nie zgadza się.       |
+| true    | 0       | false                | Brak zamówienia do przetworzenia.   |
+
+https://imgur.com/a/Kvt7SRO

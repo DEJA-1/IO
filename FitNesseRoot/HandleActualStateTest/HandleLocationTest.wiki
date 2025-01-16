@@ -1,0 +1,7 @@
+!| HandleLocationFixture |
+| scannerInput | currentOrderId | handleLocation? | getLastMessage?                 |
+| 1            | 1              | true            | Lokalizacja: [10, 10] Czy jest wystarczająca ilość rzeczy w magazynie? (0/1) |
+| 0            | 1              | false           | Nieprawidłowa odpowiedź.       |
+| 1            | 2              | true            | Lokalizacja: [20, 20] Czy jest wystarczająca ilość rzeczy w magazynie? (0/1) |
+| 0            | 2              | false           | Nieprawidłowa odpowiedź.       |
+| 1            | 3              | false           | Brak zamówienia.               |

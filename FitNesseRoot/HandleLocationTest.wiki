@@ -1,5 +1,11 @@
 !path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
 !path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
-!|presentation.test.fitnesse.HandleLocationFixture|
-|setScannerInput|setOrderById|handleLocation|
-|4                |1              |true            |
+
+!| presentation.test.fitnesse.HandleLocationFixture |
+| scannerInput | currentOrderId | handleLocation? | getLastMessage?                          |
+| 1            | 1              | true            | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                  |
+| 0            | 1              | false           | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                |
+| 1            | 2              | true            | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                   |
+| 0            | 2              | false           | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                |
+| 1            | 3              | false           | Brak zamówienia.                        |
+| 0         | 1              | false           | Czy jest wystarczająca ilość rzeczy w magazynie? (0/1)                |

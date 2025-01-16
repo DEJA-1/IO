@@ -26,26 +26,32 @@ public class InventoryView {
 
     public void displayAmountPrompt() {
         lastMessage = "Podaj ilość towaru dostępnego w magazynie:";
+        System.out.println(lastMessage);
     }
 
     public void displayInputPrompt(String prompt) {
         lastMessage = prompt;
+        System.out.println(prompt);
     }
 
     public void displayError(String error) {
         lastMessage = error;
+        System.out.println(error);
     }
 
     public void displaySuccess(String message) {
         lastMessage = message;
+        System.out.println(message);
     }
 
     public void displayLocation(Map<Integer, Integer> location) {
         StringBuilder locationMessage = new StringBuilder("Lokalizacja: ");
         for (Map.Entry<Integer, Integer> entry : location.entrySet()) {
             locationMessage.append("[").append(entry.getKey()).append(", ").append(entry.getValue()).append("] ");
+            System.out.println(locationMessage);
         }
         lastMessage = locationMessage.toString();
+
     }
 
     public String getLastMessage() {
