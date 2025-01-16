@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="inventaristaion" />
+        <module name="IO" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="23" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="IO" options="-parameters" />
       <module name="inventaristaion" options="-parameters" />
     </option>
   </component>

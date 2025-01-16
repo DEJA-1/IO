@@ -8,6 +8,8 @@ import presentation.admin.AdminViewState;
 import java.util.Map;
 
 public class InventoryView {
+    private String lastMessage;
+
     public InventoryViewState state;
     public InventoryController controller;
 
@@ -17,40 +19,36 @@ public class InventoryView {
     }
 
     public void sendEvent(InventoryViewEvent event) {
-        controller.handleEvent(event);
-    }
-
-    public void displayGUI(InventoryViewState state) {
-
-    }
-
-    public void displayInputPrompt(String prompt) {
-        System.out.println(prompt);
-    }
-
-    public void displayAmountPrompt() {
-        System.out.println("Podaj ilość towaru dostępnego w magazynie:");
-    }
-
-    public void displayLocationPrompt() {
-        System.out.println("Podaj lokalizacje towaru w magazynie:");
-    }
-
-    public void displayError(String error) {
-        System.out.println(error);
-    }
-
-    public void displaySuccess(String message) {
-        System.out.println(message);
-    }
-
-    public void displayLocation(Map<Integer, Integer> location) {
-        for (Map.Entry<Integer, Integer> entry : location.entrySet()) {
-            System.out.println("Współrzędne: " + entry.getKey()+ ", " + entry.getValue());
+        if (controller != null) {
+            controller.handleEvent(event);
         }
     }
 
-    public void displayConfirmationRequest() {
+    public void displayAmountPrompt() {
+        lastMessage = "Podaj ilość towaru dostępnego w magazynie:";
+    }
 
+    public void displayInputPrompt(String prompt) {
+        lastMessage = prompt;
+    }
+
+    public void displayError(String error) {
+        lastMessage = error;
+    }
+
+    public void displaySuccess(String message) {
+        lastMessage = message;
+    }
+
+    public void displayLocation(Map<Integer, Integer> location) {
+        StringBuilder locationMessage = new StringBuilder("Lokalizacja: ");
+        for (Map.Entry<Integer, Integer> entry : location.entrySet()) {
+            locationMessage.append("[").append(entry.getKey()).append(", ").append(entry.getValue()).append("] ");
+        }
+        lastMessage = locationMessage.toString();
+    }
+
+    public String getLastMessage() {
+        return lastMessage;
     }
 }

@@ -1,0 +1,12 @@
+---
+Test
+---
+!path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
+!path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
+
+!|presentation.test.fitnesse.HandleActualStateFixture|
+|set scanner input|set order count|handle actual state?|
+|20               |5              |true               |
+|5                |3              |true               |
+|0                |0              |false              |
+|null             |10             |false              |

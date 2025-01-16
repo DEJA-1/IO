@@ -1,0 +1,5 @@
+!path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
+!path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
+!|presentation.test.fitnesse.HandleLocationFixture|
+|set scanner input|set order by id|handle location?|
+|4                |1              |true            |

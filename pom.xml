@@ -35,6 +35,14 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.fitnesse</groupId>
+            <artifactId>fitnesse-standalone</artifactId>
+            <version>20230521</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/fitnesse-standalone.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>

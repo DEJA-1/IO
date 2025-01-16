@@ -1,0 +1,12 @@
+!path C:/Users/Krzysiek/IdeaProjects/IO/target/classes
+!path C:/Users/Krzysiek/IdeaProjects/IO/libs/fitnesse-standalone.jar
+
+!| presentation.test.fitnesse.HandleActualStateFixture |
+| scannerInput | currentOrderCount | handleActualState? | getLastMessage?                 |
+| 10           | 5                 | true               | Ilość jest poprawna.            |
+| -5           | 5                 | false              | Ilość nie może być mniejsza lub równa zero. |
+| 3            | 5                 | false              | Za mało rzeczy w magazynie.     |
+| 0            | 5                 | false              | Ilość nie może być mniejsza lub równa zero. |
+| 10           | 0                 | true               | Ilość jest poprawna.            |
+
+https://imgur.com/a/JCNbjD0

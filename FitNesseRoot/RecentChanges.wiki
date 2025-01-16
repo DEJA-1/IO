@@ -1,0 +1,4 @@
+|HandleActualStateTest||18:36:31 czw., sty 16, 2025|
+|HandleLocationTest.HandleActualStateFixture||17:57:34 czw., sty 16, 2025|
+|HandleLocationTest||17:55:33 czw., sty 16, 2025|
+|FrontPage.HandleLocationText||16:24:31 czw., sty 16, 2025|
